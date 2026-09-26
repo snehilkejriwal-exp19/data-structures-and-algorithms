@@ -1,26 +1,44 @@
 class Solution {
 public:
-    int longestConsecutive(vector<int>& nums) {
-        int n = nums.size();
-        if(n==0){
-            return 0;
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+         if (matrix.empty() || matrix[0].empty()) {
+            return {};
         }
-        int count = 1;
-        int longest = 1;
-        sort(nums.begin(),nums.end());
-        for(int i = 1;i<n;i++){
-            if(nums[i]==nums[i-1]){
-                continue;
+        vector<int> order;
+        int top = 0;
+        int bottom = matrix.size() - 1;
+        int left = 0;
+        int right = matrix[0].size() - 1;
+         while (top <= bottom && left <= right) {
+           
+            for (int col = left; col <= right; col++) {
+                order.push_back(matrix[top][col]);
             }
-            else if(nums[i] == nums[i-1]+1){
-                count++;
+            top++;
+            for (int row = top; row <= bottom; row++) {
+                order.push_back(matrix[row][right]);
             }
-            else{
-                count = 1;
+            right--;
+            if (top <= bottom) {
+                
+                for (int col = right; col >= left; col--) {
+                    order.push_back(matrix[bottom][col]);
+                }
+                bottom--;
             }
-            longest = max(longest,count);
-        }
-        return longest;
 
-    }
+            
+            if (left <= right) {
+                
+                for (int row = bottom; row >= top; row--) {
+                    order.push_back(matrix[row][left]);
+                }
+                left++;
+            }
+        }
+
+        return order;
+    
+};
+    
 };
