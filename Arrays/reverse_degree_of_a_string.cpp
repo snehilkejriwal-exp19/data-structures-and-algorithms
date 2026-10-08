@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     int reverseDegree(string s) {
@@ -10,4 +11,18 @@ public:
         }
         return reversed;
     }
+=======
+class Solution {
+public:
+    int reverseDegree(string s) {
+        int reversed = 0;
+        int n = s.length();
+
+        for(int i = 0;i<n;i++){
+            int product = (123 - s[i])*(i+1);
+            reversed += product;
+        }
+        return reversed;
+    }
+>>>>>>> bc5d7d3 (New folder)
 };
