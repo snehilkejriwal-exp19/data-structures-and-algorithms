@@ -1,4 +1,4 @@
-#Binary Search - README
+# Binary Search - README
 
 #Problems solved
 - count occurenced in array
@@ -12,3 +12,10 @@
 - single element in sorted array
 - smallest divisor
 - sqaure root
+
+# Challenges Faced
+
+- Edge case checking
+- Infinite loops
+- Out-of-bounds read
+- Early return on duplicates
